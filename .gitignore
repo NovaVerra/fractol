@@ -1,0 +1,7 @@
+fractol
+minilibx/*.o
+minilibx/*.a
+libft/*.o
+libft/*.a
+fractol.dSYM
+objs
