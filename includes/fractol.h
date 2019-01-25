@@ -24,6 +24,7 @@
 # include <math.h>
 # include <stdio.h>
 
-
+int	error(char *msg);
+int	read_input(char *str);
 
 #endif

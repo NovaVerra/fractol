@@ -12,8 +12,34 @@
 
 #include "../includes/fractol.h"
 
-int	main(void)
+int	error(char *msg)
 {
-	printf("Hello World\n");
+	ft_putendl(msg);
+	return (-1);
+}
+
+int	main(int argc, char **argv)
+{
+	if (argc == 2)
+	{
+		if (read_input(argv[1]) == -1)
+			error("invalid argument\ncommands: ./fractol maldelbrot\n          ./fractol julia\n          ./fractol burningship");
+		
+	}
+	else
+		error("insufficient argument\ncommands: ./fractol maldelbrot\n          ./fractol julia\n          ./fractol burningship");
 	return (0);
+}
+
+int	read_input(char *str)
+{
+	if (ft_strcmp(str, "mandelbrot") == 0)
+		printf("execute mandelbrot set");
+	else if (ft_strcmp(str, "julia") == 0)
+		printf("execute julia set");
+	else if (ft_strcmp(str, "burningship") == 0)
+		printf("execute burningship set");
+	else
+		return (-1);
+	return (0);	
 }
