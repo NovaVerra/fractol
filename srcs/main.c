@@ -23,11 +23,10 @@ int	main(int argc, char **argv)
 	if (argc == 2)
 	{
 		if (read_input(argv[1]) == -1)
-			error("invalid argument\ncommands: ./fractol maldelbrot\n          ./fractol julia\n          ./fractol burningship");
-		
+			error("invalid command: ./fractol [madelbort/julia/burningship]");
 	}
 	else
-		error("insufficient argument\ncommands: ./fractol maldelbrot\n          ./fractol julia\n          ./fractol burningship");
+		error("insufficient argument: ./fractol [madelbort/julia/burningship]");
 	return (0);
 }
 
@@ -41,5 +40,5 @@ int	read_input(char *str)
 		printf("execute burningship set");
 	else
 		return (-1);
-	return (0);	
+	return (0);
 }
