@@ -23,21 +23,19 @@ int	main(int argc, char **argv)
 	if (argc == 2)
 	{
 		if (read_input(argv[1]) == -1)
-			error("invalid command: ./fractol [madelbort/julia/burningship]");
+			error("invalid argv: ./fractol [mandelbrot/julia]");
 	}
 	else
-		error("insufficient argument: ./fractol [madelbort/julia/burningship]");
+		error("invalid argc: ./fractol [mandelbrot/julia]");
 	return (0);
 }
 
 int	read_input(char *str)
 {
 	if (ft_strcmp(str, "mandelbrot") == 0)
-		printf("execute mandelbrot set");
+		printf("execute mandelbrot set\n");
 	else if (ft_strcmp(str, "julia") == 0)
-		printf("execute julia set");
-	else if (ft_strcmp(str, "burningship") == 0)
-		printf("execute burningship set");
+		printf("execute julia set\n");
 	else
 		return (-1);
 	return (0);

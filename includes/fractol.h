@@ -27,21 +27,18 @@
 
 # define WIN_WIDTH 1920
 # define WIN_HEIGHT 1080
-# define THREADS 8
+# define THREAD_COUNT 8
 
 typedef struct	s_thread
-{
-	int			id;
-	t_mlx		*mlx;
-}				t_thread;
+				t_thread;
 
-typedef struct	s_complex
+typedef struct	s_set
 {
 	double		r;
 	double		i;
 	double		r_2;
 	double		i_2;
-}				t_complex;
+}				t_set;
 
 typedef struct	s_mouse
 {
@@ -57,30 +54,49 @@ typedef struct	s_image
 	void		*img;
 	char		*ptr;
 	int			bpp;
-	int			stride;
+	int			line;
 	int			endian;
 }				t_image;
 
-typedef struct	s_mlx
+typedef struct	s_cam
 {
-	void		*mlx_ptr;
-	void		*win_ptr;
-	int			(*get_set)(int, int, t_thread*);
-	char		*name;
 	double		x;
 	double		y;
 	double		offset_x;
 	double		offset_y;
 	double		zoom;
-	int			max_iter;
+}				t_cam;
+
+typedef struct	s_mlx
+{
+	void		*mlx_ptr;
+	void		*win_ptr;
+	int			max_iteration;
 	int			color;
-	t_complex	*n;
+	int			(*get_set)(int, int, t_thread*);
+	t_set		*set;
+	t_cam		*cam;
 	t_image		*image;
 	t_mouse		*mouse;
-};
+}				t_mlx;
 
+typedef struct	s_thread
+{
+	int			id;
+	t_mlx		*mlx;
+}				t_thread;
 
-int	error(char *msg);
-int	read_input(char *str);
+// main.c
+int				error(char *msg);
+int				read_input(char *str);
+
+// init.c
+t_mlx			*init_mlx(void);
+t_image			*init_image(t_mlx *mlx);
+
+// clean.c
+t_mlx			*clean_mlx(t_mlx *mlx);
+t_image			*clean_image(t_mlx *mlx, t_image *image);
+void			reset_image(t_image *image);
 
 #endif
