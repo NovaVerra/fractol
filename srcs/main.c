@@ -20,10 +20,13 @@ int	error(char *msg)
 
 int	main(int argc, char **argv)
 {
+	t_mlx	*mlx;
+
 	if (argc == 2)
 	{
 		if (read_input(argv[1]) == -1)
 			error("invalid argv: ./fractol [mandelbrot/julia]");
+		mlx_setup(&mlx);
 	}
 	else
 		error("invalid argc: ./fractol [mandelbrot/julia]");
@@ -39,4 +42,11 @@ int	read_input(char *str)
 	else
 		return (-1);
 	return (0);
+}
+
+void	mlx_setup(t_mlx **mlx)
+{
+	(*mlx) = init_mlx();
+	mlx_key_hook((*mlx)->win_ptr, hook_keydown, mlx);
+	mlx_loop((*mlx)->mlx_ptr);
 }

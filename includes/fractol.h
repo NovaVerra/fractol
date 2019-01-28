@@ -89,6 +89,7 @@ typedef struct	s_thread
 // main.c
 int				error(char *msg);
 int				read_input(char *str);
+void			mlx_setup(t_mlx **mlx);
 
 // init.c
 t_mlx			*init_mlx(void);
@@ -98,5 +99,8 @@ t_image			*init_image(t_mlx *mlx);
 t_mlx			*clean_mlx(t_mlx *mlx);
 t_image			*clean_image(t_mlx *mlx, t_image *image);
 void			reset_image(t_image *image);
+
+// input.c
+int				hook_keydown(int keycode, t_mlx *mlx);
 
 #endif
