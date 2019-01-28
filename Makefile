@@ -18,8 +18,8 @@ CC = gcc
 FLAGS = -Wall -Wextra -Werror -g
 
 # sources, objects, and header
-SRCS = ./srcs/main.c
-OBJS = ./objs/main.o
+SRCS = ./srcs/main.c ./srcs/init.c ./srcs/clean.c ./srcs/render.c ./srcs/input.c
+OBJS = ./objs/main.o ./objs/init.o ./objs/clean.o ./objs/render.o ./objs/input.o
 SRCDIR = ./srcs/
 OBJDIR = ./objs/
 INCDIR = ./includes/
@@ -50,7 +50,7 @@ $(MLX_L):
 	make -C $(MLX)
 
 $(NAME): $(OBJS)
-	$(CC) $(FLAGS) -o $(NAME) $(LIBFT_L) $(MLX_L) $(SRCS)
+	$(CC) $(FLAGS) -o $(NAME) $(LIBFT_L) $(MLX_L) $(SRCS) -lpthread
 
 clean: 
 	rm -rf $(OBJDIR)

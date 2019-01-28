@@ -5,3 +5,4 @@ libft/*.o
 libft/*.a
 fractol.dSYM
 objs
+.vscode
