@@ -24,10 +24,11 @@
 # include <math.h>
 # include <stdio.h>
 # include <pthread.h>
+# include <limits.h>
 
 # define WIN_WIDTH 1920
 # define WIN_HEIGHT 1080
-# define THREAD_COUNT 8
+# define MAX_THREAD 5
 
 typedef struct	s_thread
 				t_thread;
@@ -101,11 +102,11 @@ t_image			*clean_image(t_mlx *mlx, t_image *image);
 void			reset_image(t_image *image);
 
 // render.c
-void			render(t_mlx *mlx);
-void			*render_thread(void *arg);
+void			threading(t_mlx *mlx);
+void			*render(void *arg);
 void			img_put_pixel(t_image *img, int x, int y, int color);
 
 // input.c
-int				hook_keydown(int keycode, t_mlx *mlx);
+int				key_press(int keycode, t_mlx *mlx);
 
 #endif

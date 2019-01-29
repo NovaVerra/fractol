@@ -12,35 +12,35 @@
 
 #include "../includes/fractol.h"
 
-void	render(t_mlx *mlx)
+void	threading(t_mlx *mlx)
 {
 	int			i;
-	t_thread	arg[THREAD_COUNT];
-	pthread_t	thread[THREAD_COUNT];
+	t_thread	arg[MAX_THREAD];
+	pthread_t	thread[MAX_THREAD];
 
 	reset_image(mlx->image);
 	i = -1;
-	while (++i < THREAD_COUNT)
+	while (++i < MAX_THREAD)
 	{
 		arg[i].id = i;
 		arg[i].mlx = mlx;
-		pthread_create(&thread[i], NULL, render_thread, &arg[i]);
+		pthread_create(&thread[i], NULL, render, &arg[i]);
 	}
 	i = -1;
-	while (++i < THREAD_COUNT)
+	while (++i < MAX_THREAD)
 		pthread_join(thread[i], NULL);
 	mlx_put_image_to_window(mlx->mlx_ptr, mlx->win_ptr, mlx->image->img, 0, 0);
 }
 
-void	*render_thread(void *arg)
+void	*render(void *arg)
 {
 	int			x;
 	int			y;
 	t_thread	*cur;
 
 	cur = (t_thread *)arg;
-	y = 0;
-	while (y < WIN_HEIGHT)
+	y = WIN_HEIGHT / MAX_THREAD * cur->id;
+	while (y < ((WIN_HEIGHT / MAX_THREAD) * (cur->id + 1)))
 	{
 		x = 0;
 		while (x < WIN_WIDTH)

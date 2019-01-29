@@ -12,7 +12,7 @@
 
 #include "../includes/fractol.h"
 
-int		hook_keydown(int keycode, t_mlx *mlx)
+int		key_press(int keycode, t_mlx *mlx)
 {
 	(void)mlx;
 	if (keycode == 53)

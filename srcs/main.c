@@ -12,13 +12,13 @@
 
 #include "../includes/fractol.h"
 
-int	error(char *msg)
+int		error(char *msg)
 {
 	ft_putendl(msg);
 	return (-1);
 }
 
-int	main(int argc, char **argv)
+int		main(int argc, char **argv)
 {
 	t_mlx	*mlx;
 
@@ -33,7 +33,7 @@ int	main(int argc, char **argv)
 	return (0);
 }
 
-int	read_input(char *str)
+int		read_input(char *str)
 {
 	if (ft_strcmp(str, "mandelbrot") == 0)
 		printf("execute mandelbrot set\n");
@@ -49,6 +49,6 @@ int	read_input(char *str)
 void	mlx_setup(t_mlx **mlx)
 {
 	(*mlx) = init_mlx();
-	mlx_key_hook((*mlx)->win_ptr, hook_keydown, mlx);
+	mlx_key_hook((*mlx)->win_ptr, key_press, mlx);
 	mlx_loop((*mlx)->mlx_ptr);
 }
