@@ -100,6 +100,11 @@ t_mlx			*clean_mlx(t_mlx *mlx);
 t_image			*clean_image(t_mlx *mlx, t_image *image);
 void			reset_image(t_image *image);
 
+// render.c
+void			render(t_mlx *mlx);
+void			*render_thread(void *arg);
+void			img_put_pixel(t_image *img, int x, int y, int color);
+
 // input.c
 int				hook_keydown(int keycode, t_mlx *mlx);
 

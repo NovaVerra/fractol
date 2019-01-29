@@ -25,11 +25,11 @@ int	main(int argc, char **argv)
 	if (argc == 2)
 	{
 		if (read_input(argv[1]) == -1)
-			error("invalid argv: ./fractol [mandelbrot/julia]");
+			error("invalid argv: ./fractol [mandelbrot/julia/burningship]");
 		mlx_setup(&mlx);
 	}
 	else
-		error("invalid argc: ./fractol [mandelbrot/julia]");
+		error("invalid argc: ./fractol [mandelbrot/julia/burningship]");
 	return (0);
 }
 
@@ -39,6 +39,8 @@ int	read_input(char *str)
 		printf("execute mandelbrot set\n");
 	else if (ft_strcmp(str, "julia") == 0)
 		printf("execute julia set\n");
+	else if (ft_strcmp(str, "burningship") == 0)
+		printf("execute burningship\n");
 	else
 		return (-1);
 	return (0);
