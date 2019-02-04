@@ -18,7 +18,7 @@ void	thread(t_mlx *mlx)
 	t_thread	arg[MAX_THREAD];
 	pthread_t	thread[MAX_THREAD];
 
-	reset_image(mlx);
+	reset_image(mlx->image);
 	i = -1;
 	while (++i < MAX_THREAD)
 	{
