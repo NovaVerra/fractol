@@ -26,15 +26,15 @@ t_mlx	*init_mlx(void)
 		!(mlx->image = init_image(mlx)) ||
 		!(mlx->mouse = ft_memalloc(sizeof(t_mouse))))
 		return (clean_mlx(mlx));
-	mlx->max_iteration = 1;
+	mlx->max_iteration = 10;
 	mlx->color = 0xFFFFFF;
-	mlx->set->r = 0;
-	mlx->set->i = 0;
+	mlx->set->r = 0.5;
+	mlx->set->i = 0.5;
 	mlx->cam->x = 0;
 	mlx->cam->y = 0;
 	mlx->cam->offset_x = 0;
 	mlx->cam->offset_y = 0;
-	mlx->cam->zoom = 1;
+	mlx->cam->zoom = 0.5;
 	mlx->mouse->pressed = 0;
 	return (mlx);
 }
