@@ -90,7 +90,7 @@ typedef struct	s_thread
 // main.c
 int				error(char *msg);
 int				read_input(t_mlx **mlx, char *str);
-void			mlx_setup(t_mlx **mlx);
+void			mlx_setup(t_mlx *mlx);
 
 // init.c
 t_mlx			*init_mlx(void);

@@ -28,7 +28,7 @@ int		main(int argc, char **argv)
 		if (read_input(&mlx, argv[1]) == -1)
 			error("invalid argv: ./fractol [mandelbrot/julia/burningship]");
 		else
-			mlx_setup(&mlx);
+			mlx_setup(mlx);
 	}
 	else
 		error("invalid argc: ./fractol [mandelbrot/julia/burningship]");
@@ -48,12 +48,12 @@ int		read_input(t_mlx **mlx, char *str)
 	return (0);
 }
 
-void	mlx_setup(t_mlx **mlx)
+void	mlx_setup(t_mlx *mlx)
 {
-	thread(*mlx);
-	mlx_key_hook((*mlx)->win_ptr, key_press, mlx);
-	mlx_hook((*mlx)->win_ptr, 2, 0, key_down, mlx);
-	mlx_hook((*mlx)->win_ptr, 4, 0, mouse_zoom, mlx);
-	mlx_hook((*mlx)->win_ptr, 6, 0, mouse_move, mlx);
-	mlx_loop((*mlx)->mlx_ptr);
+	thread(mlx);
+	mlx_key_hook(mlx->win_ptr, key_press, mlx);
+	mlx_hook(mlx->win_ptr, 2, 0, key_down, mlx);
+	mlx_hook(mlx->win_ptr, 4, 0, mouse_zoom, mlx);
+	mlx_hook(mlx->win_ptr, 6, 0, mouse_move, mlx);
+	mlx_loop(mlx->mlx_ptr);
 }
