@@ -108,10 +108,13 @@ void			img_put_pixel(t_image *img, int x, int y, int color);
 
 // input.c
 int				key_press(int keycode, t_mlx *mlx);
-int				key_down(int key, t_mlx *mlx);
+
+// input2.c
+void			change_set(t_mlx *mlx, int keycode);
+void			shift_cam(t_mlx *mlx, int keycode);
+void			iterate_set(t_mlx *mlx, int keycode);
+void			zoom_cam(t_mlx *mlx, int keycode);
 void			reset(t_mlx *mlx);
-int				mouse_zoom(int button, int y, t_mlx *mlx);
-int				mouse_move(int x, int y, t_mlx *mlx);
 
 // color.c
 void			get_color(int i, t_thread *thrd, int x, int y);
