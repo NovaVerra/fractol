@@ -6,7 +6,7 @@
 #    By: llee <marvin@42.fr>                        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/12/12 13:45:45 by llee              #+#    #+#              #
-#    Updated: 2019/01/23 11:57:32 by llee             ###   ########.fr        #
+#    Updated: 2019/01/28 16:45:07 by llee             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,11 +15,11 @@ NAME = fractol
 
 # compiler
 CC = gcc
-FLAGS = -Wall -Wextra -Werror -g
+FLAGS = -Wall -Wextra -Werror -g -fsanitize=address
 
 # sources, objects, and header
-SRCS = ./srcs/main.c ./srcs/init.c ./srcs/clean.c ./srcs/render.c ./srcs/input.c
-OBJS = ./objs/main.o ./objs/init.o ./objs/clean.o ./objs/render.o ./objs/input.o
+SRCS = ./srcs/main.c ./srcs/init.c ./srcs/clean.c ./srcs/render.c ./srcs/input.c ./srcs/color.c ./srcs/set.c
+OBJS = ./objs/main.o ./objs/init.o ./objs/clean.o ./objs/render.o ./objs/input.o ./objs/color.o ./objs/set.o
 SRCDIR = ./srcs/
 OBJDIR = ./objs/
 INCDIR = ./includes/

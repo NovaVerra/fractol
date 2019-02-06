@@ -24,10 +24,11 @@
 # include <math.h>
 # include <stdio.h>
 # include <pthread.h>
+# include <limits.h>
 
 # define WIN_WIDTH 1920
 # define WIN_HEIGHT 1080
-# define THREAD_COUNT 8
+# define MAX_THREAD 5
 
 typedef struct	s_thread
 				t_thread;
@@ -88,8 +89,8 @@ typedef struct	s_thread
 
 // main.c
 int				error(char *msg);
-int				read_input(char *str);
-void			mlx_setup(t_mlx **mlx);
+int				read_input(t_mlx **mlx, char *str);
+void			mlx_setup(t_mlx *mlx);
 
 // init.c
 t_mlx			*init_mlx(void);
@@ -100,7 +101,25 @@ t_mlx			*clean_mlx(t_mlx *mlx);
 t_image			*clean_image(t_mlx *mlx, t_image *image);
 void			reset_image(t_image *image);
 
+// render.c
+void			thread(t_mlx *mlx);
+void			*render(void *arg);
+void			img_put_pixel(t_image *img, int x, int y, int color);
+
 // input.c
-int				hook_keydown(int keycode, t_mlx *mlx);
+int				key_press(int keycode, t_mlx *mlx);
+int				key_down(int key, t_mlx *mlx);
+void			reset(t_mlx *mlx);
+int				mouse_zoom(int button, int y, t_mlx *mlx);
+int				mouse_move(int x, int y, t_mlx *mlx);
+
+// color.c
+void			get_color(int i, t_thread *thrd, int x, int y);
+
+// set.c
+int				julia_set();
+int				mandelbrot_set();
+int				burningship_set();
+t_set			calc_cam(int x, int y, t_thread *set);
 
 #endif
