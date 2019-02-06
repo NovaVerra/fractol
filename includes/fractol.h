@@ -108,6 +108,9 @@ void			img_put_pixel(t_image *img, int x, int y, int color);
 
 // input.c
 int				key_press(int keycode, t_mlx *mlx);
+int				mouse_press(int button, int x, int y, t_mlx *mlx);
+int				mouse_release(int button, int x, int y, t_mlx *mlx);
+int				mouse_move(int x, int y, t_mlx *mlx);
 
 // input2.c
 void			change_set(t_mlx *mlx, int keycode);

@@ -15,7 +15,7 @@ NAME = fractol
 
 # compiler
 CC = gcc
-FLAGS = -Wall -Wextra -Werror -g -fsanitize=address
+FLAGS = -Wall -Wextra -Werror -g
 
 # sources, objects, and header
 SRCS = ./srcs/main.c ./srcs/init.c ./srcs/clean.c ./srcs/render.c ./srcs/input.c ./srcs/input2.c ./srcs/color.c ./srcs/set.c

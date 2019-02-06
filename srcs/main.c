@@ -52,8 +52,8 @@ void	mlx_setup(t_mlx *mlx)
 {
 	thread(mlx);
 	mlx_key_hook(mlx->win_ptr, key_press, mlx);
+	mlx_hook(mlx->win_ptr, 4, 0, mouse_press, mlx);
+	// mlx_hook(mlx->win_ptr, 5, 0, mouse_release, mlx);
+	mlx_hook(mlx->win_ptr, 6, 0, mouse_move, mlx);
 	mlx_loop(mlx->mlx_ptr);
-	// mlx_hook(mlx->win_ptr, 2, 0, key_down, mlx);
-	// mlx_hook(mlx->win_ptr, 4, 0, mouse_zoom, mlx);
-	// mlx_hook(mlx->win_ptr, 6, 0, mouse_move, mlx);
 }

@@ -44,9 +44,9 @@ void	iterate_set(t_mlx *mlx, int keycode)
 
 void	zoom_cam(t_mlx *mlx, int keycode)
 {
-	if (keycode == 69)
+	if (keycode == 69 || keycode == 4)
 		mlx->cam->zoom *= 1.15;
-	else if (keycode == 78)
+	else if (keycode == 78 || keycode == 5)
 		mlx->cam->zoom /= 1.15;
 }
 
