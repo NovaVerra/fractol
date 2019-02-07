@@ -42,7 +42,7 @@ int		read_input(t_mlx **mlx, char *str)
 	else if (ft_strcmp(str, "julia") == 0)
 		(*mlx)->get_set = julia_set;
 	else if (ft_strcmp(str, "burningship") == 0)
-		(*mlx)->get_set = burningship_set;
+		(*mlx)->get_set = bird_set;
 	else
 		return (-1);
 	return (0);

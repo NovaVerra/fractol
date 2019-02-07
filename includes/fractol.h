@@ -127,7 +127,7 @@ void			message_2(t_mlx *mlx);
 // set.c
 int				julia_set();
 int				mandelbrot_set();
-int				burningship_set();
+int				bird_set();
 t_set			calc_cam(int x, int y, t_thread *set);
 
 #endif

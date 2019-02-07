@@ -63,7 +63,7 @@ int		mandelbrot_set(int x, int y, t_thread *m)
 	return (-1);
 }
 
-int		burningship_set(int x, int y, t_thread *m)
+int		bird_set(int x, int y, t_thread *m)
 {
 	t_set	new;
 	t_set	old;
@@ -80,8 +80,8 @@ int		burningship_set(int x, int y, t_thread *m)
 		old.i = new.i;
 		old.r_2 = old.r * old.r;
 		old.i_2 = old.i * old.i;
-		new.r = fabs((old.r_2) - (old.i_2)) + cur.r;
-		new.i = fabs(((old.r + old.r) * old.i)) + cur.i;
+		new.r = exp((old.r_2) - (old.i_2)) + cur.r;
+		new.i = exp(((old.r + old.r) * old.i)) + cur.i;
 		new.r_2 = new.r * new.r;
 		new.i_2 = new.i * new.i;
 		if ((new.r_2 + new.i_2) > 4)
