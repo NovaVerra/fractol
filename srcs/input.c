@@ -25,6 +25,10 @@ int	key_press(int keycode, t_mlx *mlx)
 		iterate_set(mlx, keycode);
 	else if (keycode == 69 || keycode == 78)
 		zoom_cam(mlx, keycode);
+	else if (keycode == 8)
+		mlx->color = 1;
+	else if (keycode == 11)
+		mlx->color = 0;
 	else if (keycode == 15)
 		reset(mlx);
 	thread(mlx);
@@ -61,9 +65,9 @@ int	mouse_move(int x, int y, t_mlx *mlx)
 	mlx->mouse->y = y;
 	if (mlx->mouse->pressed == 1)
 	{
-		mlx->set->i += .00025 *
+		mlx->set->i += .001 *
 			(double)(mlx->mouse->prev_x - x) / mlx->cam->zoom;
-		mlx->set->r += .00025 *
+		mlx->set->r += .001 *
 			(double)(mlx->mouse->prev_y - y) / mlx->cam->zoom;
 	}
 	thread(mlx);

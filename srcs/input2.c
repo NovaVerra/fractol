@@ -15,11 +15,11 @@
 void	change_set(t_mlx *mlx, int keycode)
 {
 	if (keycode == 18)
-		read_input(&mlx, "julia");
+		read_input(mlx, "julia");
 	else if (keycode == 19)
-		read_input(&mlx, "mandelbrot");
+		read_input(mlx, "mandelbrot");
 	else if (keycode == 20)
-		read_input(&mlx, "burningship");
+		read_input(mlx, "burningship");
 }
 
 void	shift_cam(t_mlx *mlx, int keycode)

@@ -27,7 +27,7 @@ t_mlx	*init_mlx(void)
 		!(mlx->mouse = ft_memalloc(sizeof(t_mouse))))
 		return (clean_mlx(mlx));
 	mlx->max_iteration = 10;
-	mlx->color = 0xFFFFFF;
+	mlx->color = 1;
 	mlx->set->r = 0.5;
 	mlx->set->i = 0.5;
 	mlx->cam->x = 0;

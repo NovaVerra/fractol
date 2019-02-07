@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: llee <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/01/23 11:57:52 by llee              #+#    #+#             */
-/*   Updated: 2019/01/23 11:59:43 by llee             ###   ########.fr       */
+/*   Created: 2019/02/07 14:15:14 by llee              #+#    #+#             */
+/*   Updated: 2019/02/07 14:15:17 by llee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,6 @@
 # define WIN_WIDTH 1920
 # define WIN_HEIGHT 1080
 # define MAX_THREAD 5
-
-typedef struct	s_thread
-				t_thread;
 
 typedef struct	s_set
 {
@@ -68,32 +65,32 @@ typedef struct	s_cam
 	double		zoom;
 }				t_cam;
 
-typedef struct	s_mlx
-{
-	void		*mlx_ptr;
-	void		*win_ptr;
-	int			max_iteration;
-	int			color;
-	int			(*get_set)(int, int, t_thread*);
-	t_set		*set;
-	t_cam		*cam;
-	t_image		*image;
-	t_mouse		*mouse;
-}				t_mlx;
-
-typedef struct	s_thread
+typedef	struct s_mlx	t_mlx;
+typedef	struct	s_thread
 {
 	int			id;
 	t_mlx		*mlx;
 }				t_thread;
 
-/* 
+struct			s_mlx
+{
+	void		*mlx_ptr;
+	void		*win_ptr;
+	t_set		*set;
+	int			(*get_set)(int, int, t_thread*);
+	t_cam		*cam;
+	int			max_iteration;
+	int			color;
+	t_image		*image;
+	t_mouse		*mouse;
+};
+
+/*
 ** main.c
 */
 int				error(char *msg);
-int				read_input(t_mlx **mlx, char *str);
+int				read_input(t_mlx *mlx, char *str);
 void			mlx_setup(t_mlx *mlx);
-
 
 /*
 ** init.c

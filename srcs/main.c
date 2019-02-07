@@ -25,7 +25,7 @@ int		main(int argc, char **argv)
 	mlx = init_mlx();
 	if (argc == 2)
 	{
-		if (read_input(&mlx, argv[1]) == -1)
+		if (read_input(mlx, argv[1]) == -1)
 			error("invalid argv: ./fractol [mandelbrot/julia/burningship]");
 		else
 			mlx_setup(mlx);
@@ -35,14 +35,14 @@ int		main(int argc, char **argv)
 	return (0);
 }
 
-int		read_input(t_mlx **mlx, char *str)
+int		read_input(t_mlx *mlx, char *str)
 {
 	if (ft_strcmp(str, "mandelbrot") == 0)
-		(*mlx)->get_set = mandelbrot_set;
+		mlx->get_set = mandelbrot_set;
 	else if (ft_strcmp(str, "julia") == 0)
-		(*mlx)->get_set = julia_set;
+		mlx->get_set = julia_set;
 	else if (ft_strcmp(str, "burningship") == 0)
-		(*mlx)->get_set = bird_set;
+		mlx->get_set = bird_set;
 	else
 		return (-1);
 	return (0);
