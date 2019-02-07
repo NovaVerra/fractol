@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: llee <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/01/23 11:57:52 by llee              #+#    #+#             */
-/*   Updated: 2019/01/23 11:59:43 by llee             ###   ########.fr       */
+/*   Created: 2019/02/07 14:15:14 by llee              #+#    #+#             */
+/*   Updated: 2019/02/07 14:15:17 by llee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,6 @@
 # define WIN_WIDTH 1920
 # define WIN_HEIGHT 1080
 # define MAX_THREAD 5
-
-typedef struct	s_thread
-				t_thread;
 
 typedef struct	s_set
 {
@@ -68,58 +65,83 @@ typedef struct	s_cam
 	double		zoom;
 }				t_cam;
 
-typedef struct	s_mlx
-{
-	void		*mlx_ptr;
-	void		*win_ptr;
-	int			max_iteration;
-	int			color;
-	int			(*get_set)(int, int, t_thread*);
-	t_set		*set;
-	t_cam		*cam;
-	t_image		*image;
-	t_mouse		*mouse;
-}				t_mlx;
-
-typedef struct	s_thread
+typedef	struct s_mlx	t_mlx;
+typedef	struct	s_thread
 {
 	int			id;
 	t_mlx		*mlx;
 }				t_thread;
 
-// main.c
+struct			s_mlx
+{
+	void		*mlx_ptr;
+	void		*win_ptr;
+	t_set		*set;
+	int			(*get_set)(int, int, t_thread*);
+	t_cam		*cam;
+	int			max_iteration;
+	int			color;
+	t_image		*image;
+	t_mouse		*mouse;
+};
+
+/*
+** main.c
+*/
 int				error(char *msg);
-int				read_input(t_mlx **mlx, char *str);
+int				read_input(t_mlx *mlx, char *str);
 void			mlx_setup(t_mlx *mlx);
 
-// init.c
+/*
+** init.c
+*/
 t_mlx			*init_mlx(void);
 t_image			*init_image(t_mlx *mlx);
 
-// clean.c
+/*
+** clean.c
+*/
 t_mlx			*clean_mlx(t_mlx *mlx);
 t_image			*clean_image(t_mlx *mlx, t_image *image);
 void			reset_image(t_image *image);
 
-// render.c
+/*
+** render.c
+*/
 void			thread(t_mlx *mlx);
 void			*render(void *arg);
 void			img_put_pixel(t_image *img, int x, int y, int color);
 
-// input.c
+/*
+** input.c
+*/
 int				key_press(int keycode, t_mlx *mlx);
-int				key_down(int key, t_mlx *mlx);
-void			reset(t_mlx *mlx);
-int				mouse_zoom(int button, int y, t_mlx *mlx);
+int				mouse_press(int button, int x, int y, t_mlx *mlx);
+int				mouse_release(int button, int x, int y, t_mlx *mlx);
 int				mouse_move(int x, int y, t_mlx *mlx);
 
-// color.c
-void			get_color(int i, t_thread *thrd, int x, int y);
+/*
+** input2.c
+*/
+void			change_set(t_mlx *mlx, int keycode);
+void			shift_cam(t_mlx *mlx, int keycode);
+void			iterate_set(t_mlx *mlx, int keycode);
+void			zoom_cam(t_mlx *mlx, int keycode);
+void			reset(t_mlx *mlx);
 
-// set.c
-int				julia_set();
-int				mandelbrot_set();
-int				burningship_set();
+/*
+** color.c
+*/
+void			get_color(int i, t_thread *thrd, int x, int y);
+void			message(t_mlx *mlx);
+void			message_2(t_mlx *mlx);
+
+/*
+** set.c
+*/
+int				julia_set(int x, int y, t_thread *m);
+int				mandelbrot_set(int x, int y, t_thread *m);
+int				bird_set(int x, int y, t_thread *m);
 t_set			calc_cam(int x, int y, t_thread *set);
 
 #endif

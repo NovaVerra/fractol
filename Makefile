@@ -15,11 +15,11 @@ NAME = fractol
 
 # compiler
 CC = gcc
-FLAGS = -Wall -Wextra -Werror -g -fsanitize=address
+FLAGS = -Wall -Wextra -Werror -g
 
 # sources, objects, and header
-SRCS = ./srcs/main.c ./srcs/init.c ./srcs/clean.c ./srcs/render.c ./srcs/input.c ./srcs/color.c ./srcs/set.c
-OBJS = ./objs/main.o ./objs/init.o ./objs/clean.o ./objs/render.o ./objs/input.o ./objs/color.o ./objs/set.o
+SRCS = ./srcs/main.c ./srcs/init.c ./srcs/clean.c ./srcs/render.c ./srcs/input.c ./srcs/input2.c ./srcs/color.c ./srcs/set.c
+OBJS = ./objs/main.o ./objs/init.o ./objs/clean.o ./objs/render.o ./objs/input.o ./objs/input2.o ./objs/color.o ./objs/set.o
 SRCDIR = ./srcs/
 OBJDIR = ./objs/
 INCDIR = ./includes/

@@ -30,6 +30,7 @@ void	thread(t_mlx *mlx)
 	while (++i < MAX_THREAD)
 		pthread_join(thread[i], NULL);
 	mlx_put_image_to_window(mlx->mlx_ptr, mlx->win_ptr, mlx->image->img, 0, 0);
+	message(mlx);
 }
 
 void	*render(void *arg)
