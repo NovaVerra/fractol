@@ -38,12 +38,18 @@ int	mouse_press(int button, int x, int y, t_mlx *mlx)
 		zoom_cam(mlx, button);
 	if (y < 0)
 		return (0);
-	if (button == 1 && mlx->mouse->pressed == 1)
-		mlx->mouse->pressed = 0;
 	if (button == 1 && mlx->mouse->pressed == 0)
 		mlx->mouse->pressed = 1;
-	printf("%d\n", mlx->mouse->pressed);
 	thread(mlx);
+	return (0);
+}
+
+int	mouse_release(int button, int x, int y, t_mlx *mlx)
+{
+	(void)x;
+	(void)y;
+	if (button == 1 && mlx->mouse->pressed == 1)
+		mlx->mouse->pressed = 0;
 	return (0);
 }
 

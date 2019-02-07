@@ -121,6 +121,8 @@ void			reset(t_mlx *mlx);
 
 // color.c
 void			get_color(int i, t_thread *thrd, int x, int y);
+void			message(t_mlx *mlx);
+void			message_2(t_mlx *mlx);
 
 // set.c
 int				julia_set();
