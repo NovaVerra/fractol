@@ -21,7 +21,7 @@ int	key_press(int keycode, t_mlx *mlx)
 		change_set(mlx, keycode);
 	else if (keycode == 13 || (keycode >= 0 && keycode <= 2))
 		shift_cam(mlx, keycode);
-	else if (keycode == 67 || keycode == 75)
+	else if (keycode == 67 || keycode == 75 || keycode == 12 || keycode == 14)
 		iterate_set(mlx, keycode);
 	else if (keycode == 69 || keycode == 78)
 		zoom_cam(mlx, keycode);

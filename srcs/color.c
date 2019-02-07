@@ -35,8 +35,10 @@ void	message(t_mlx *mlx)
 	mlx_string_put(mlx->mlx_ptr, mlx->win_ptr, 50, 150, 0xFFFFFF,
 	"- ADD/SUBTRACT ON NUMPAD = zoom in/out");
 	mlx_string_put(mlx->mlx_ptr, mlx->win_ptr, 50, 175, 0xFFFFFF,
-	"- / | * ON NUMPAD = zoom in/out");
+	"- / | * ON NUMPAD = increase/decrease iteration");
 	mlx_string_put(mlx->mlx_ptr, mlx->win_ptr, 50, 200, 0xFFFFFF,
+	"- Q/E = increase/decrease iteration");
+	mlx_string_put(mlx->mlx_ptr, mlx->win_ptr, 50, 225, 0xFFFFFF,
 	"- R = reset");
 	message_2(mlx);
 }
@@ -46,16 +48,16 @@ void	message_2(t_mlx *mlx)
 	int	i;
 
 	i = 34;
-	while (++i < 235)
+	while (++i < 255)
 		mlx_pixel_put(mlx->mlx_ptr, mlx->win_ptr, 35, i, 0xFFFFFF);
 	i = 34;
 	while (++i < 600)
 		mlx_pixel_put(mlx->mlx_ptr, mlx->win_ptr, i, 35, 0xFFFFFF);
 	i = 34;
-	while (++i < 235)
+	while (++i < 255)
 		mlx_pixel_put(mlx->mlx_ptr, mlx->win_ptr, 600, i, 0xFFFFFF);
 	i = 34;
 	while (++i < 600)
-		mlx_pixel_put(mlx->mlx_ptr, mlx->win_ptr, i, 235, 0xFFFFFF);
+		mlx_pixel_put(mlx->mlx_ptr, mlx->win_ptr, i, 255, 0xFFFFFF);
 	mlx_string_put(mlx->mlx_ptr, mlx->win_ptr, 1810, 1030, 0xFFFFFF, "by llee");
 }

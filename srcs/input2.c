@@ -25,20 +25,24 @@ void	change_set(t_mlx *mlx, int keycode)
 void	shift_cam(t_mlx *mlx, int keycode)
 {
 	if (keycode == 13)
-		mlx->cam->offset_y -= (WIN_HEIGHT / 2) / ((WIN_HEIGHT / 2) * mlx->cam->zoom) * 0.15;
+		mlx->cam->offset_y -= (WIN_HEIGHT / 2) /
+		((WIN_HEIGHT / 2) * mlx->cam->zoom) * 0.15;
 	else if (keycode == 1)
-		mlx->cam->offset_y += (WIN_HEIGHT / 2) / ((WIN_HEIGHT / 2) * mlx->cam->zoom) * 0.15;
+		mlx->cam->offset_y += (WIN_HEIGHT / 2) /
+		((WIN_HEIGHT / 2) * mlx->cam->zoom) * 0.15;
 	else if (keycode == 0)
-		mlx->cam->offset_x -= (WIN_WIDTH / 2) / ((WIN_WIDTH / 2) * mlx->cam->zoom) * 0.15;
+		mlx->cam->offset_x -= (WIN_WIDTH / 2) /
+		((WIN_WIDTH / 2) * mlx->cam->zoom) * 0.15;
 	else if (keycode == 2)
-		mlx->cam->offset_x += (WIN_WIDTH / 2) / ((WIN_WIDTH / 2) * mlx->cam->zoom) * 0.15;
+		mlx->cam->offset_x += (WIN_WIDTH / 2) /
+		((WIN_WIDTH / 2) * mlx->cam->zoom) * 0.15;
 }
 
 void	iterate_set(t_mlx *mlx, int keycode)
 {
-	if (keycode == 67)
+	if (keycode == 67 || keycode == 14)
 		mlx->max_iteration += 10;
-	else if (keycode == 75)
+	else if (keycode == 75 || keycode == 12)
 		mlx->max_iteration -= 10;
 }
 

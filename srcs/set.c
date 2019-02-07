@@ -12,7 +12,7 @@
 
 #include "../includes/fractol.h"
 
-int			julia_set(int x, int y, t_thread *m)
+int		julia_set(int x, int y, t_thread *m)
 {
 	t_set	new;
 	t_set	old;
@@ -36,12 +36,12 @@ int			julia_set(int x, int y, t_thread *m)
 	return (-1);
 }
 
-int			mandelbrot_set(int x, int y, t_thread *m)
+int		mandelbrot_set(int x, int y, t_thread *m)
 {
 	t_set	new;
 	t_set	old;
 	t_set	cur;
-	int			i;
+	int		i;
 
 	cur = calc_cam(x, y, m);
 	new.r = 0;
@@ -63,12 +63,12 @@ int			mandelbrot_set(int x, int y, t_thread *m)
 	return (-1);
 }
 
-int			burningship_set(int x, int y, t_thread *m)
+int		burningship_set(int x, int y, t_thread *m)
 {
 	t_set	new;
 	t_set	old;
 	t_set	cur;
-	int			i;
+	int		i;
 
 	cur = calc_cam(x, y, m);
 	new.r = 0;
@@ -94,7 +94,9 @@ t_set	calc_cam(int x, int y, t_thread *set)
 {
 	t_set	cur;
 
-	cur.r = 1.5 * (x - (WIN_WIDTH / 2)) / ((WIN_WIDTH / 2) * set->mlx->cam->zoom) + set->mlx->cam->offset_x;
-	cur.i = (y - (WIN_HEIGHT / 2)) / ((WIN_HEIGHT / 2) * set->mlx->cam->zoom) + set->mlx->cam->offset_y;
+	cur.r = 1.5 * (x - (WIN_WIDTH / 2)) / ((WIN_WIDTH / 2) *
+	set->mlx->cam->zoom) + set->mlx->cam->offset_x;
+	cur.i = (y - (WIN_HEIGHT / 2)) / ((WIN_HEIGHT / 2) *
+	set->mlx->cam->zoom) + set->mlx->cam->offset_y;
 	return (cur);
 }
