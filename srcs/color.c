@@ -35,7 +35,7 @@ void	get_color(int i, t_thread *thrd, int x, int y)
 void	message(t_mlx *mlx)
 {
 	mlx_string_put(mlx->mlx_ptr, mlx->win_ptr, 50, 50, 0xFFFFFF,
-	"- LEFT CLICK + DRAG = shift real and imaginery number");
+	"- LEFT CLICK + DRAG = shift 'R' and 'i' numbers (only julia)");
 	mlx_string_put(mlx->mlx_ptr, mlx->win_ptr, 50, 75, 0xFFFFFF,
 	"- SCROLLWHEEL = zoom in/out");
 	mlx_string_put(mlx->mlx_ptr, mlx->win_ptr, 50, 100, 0xFFFFFF,
@@ -65,13 +65,13 @@ void	message_2(t_mlx *mlx)
 	while (++i < 310)
 		mlx_pixel_put(mlx->mlx_ptr, mlx->win_ptr, 35, i, 0xFFFFFF);
 	i = 34;
-	while (++i < 600)
+	while (++i < 675)
 		mlx_pixel_put(mlx->mlx_ptr, mlx->win_ptr, i, 35, 0xFFFFFF);
 	i = 34;
 	while (++i < 310)
-		mlx_pixel_put(mlx->mlx_ptr, mlx->win_ptr, 600, i, 0xFFFFFF);
+		mlx_pixel_put(mlx->mlx_ptr, mlx->win_ptr, 675, i, 0xFFFFFF);
 	i = 34;
-	while (++i < 600)
+	while (++i < 675)
 		mlx_pixel_put(mlx->mlx_ptr, mlx->win_ptr, i, 310, 0xFFFFFF);
 	mlx_string_put(mlx->mlx_ptr, mlx->win_ptr, 1810, 1030, 0xFFFFFF, "by llee");
 }
