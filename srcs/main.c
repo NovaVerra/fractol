@@ -35,7 +35,7 @@ int		main(int argc, char **argv)
 	return (0);
 }
 
-int		read_input(t_mlx *mlx, char *str) 
+int		read_input(t_mlx *mlx, char *str)
 {
 	if (ft_strcmp(str, "mandelbrot") == 0)
 		mlx->get_set = mandelbrot_set;
