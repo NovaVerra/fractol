@@ -26,22 +26,22 @@ int		main(int argc, char **argv)
 	if (argc == 2)
 	{
 		if (read_input(mlx, argv[1]) == -1)
-			error("invalid argv: ./fractol [mandelbrot/julia/burningship]");
+			error("invalid argv: ./fractol [mandelbrot/julia/bird]");
 		else
 			mlx_setup(mlx);
 	}
 	else
-		error("invalid argc: ./fractol [mandelbrot/julia/burningship]");
+		error("invalid argc: ./fractol [mandelbrot/julia/bird]");
 	return (0);
 }
 
-int		read_input(t_mlx *mlx, char *str)
+int		read_input(t_mlx *mlx, char *str) 
 {
 	if (ft_strcmp(str, "mandelbrot") == 0)
 		mlx->get_set = mandelbrot_set;
 	else if (ft_strcmp(str, "julia") == 0)
 		mlx->get_set = julia_set;
-	else if (ft_strcmp(str, "burningship") == 0)
+	else if (ft_strcmp(str, "bird") == 0)
 		mlx->get_set = bird_set;
 	else
 		return (-1);
