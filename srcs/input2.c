@@ -19,7 +19,7 @@ void	change_set(t_mlx *mlx, int keycode)
 	else if (keycode == 19)
 		read_input(mlx, "mandelbrot");
 	else if (keycode == 20)
-		read_input(mlx, "burningship");
+		read_input(mlx, "bird");
 }
 
 void	shift_cam(t_mlx *mlx, int keycode)
