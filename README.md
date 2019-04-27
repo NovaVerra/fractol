@@ -7,7 +7,7 @@ This new project will be the opporunity for you to hone your miniLibX skills, to
 
 ## Execution
 
-FdF's minilibx requires you to be on MacOSX
+Fractol's minilibx requires you to be on MacOSX
 
 ```sh
 $ make
